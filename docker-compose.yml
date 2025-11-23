@@ -1,0 +1,22 @@
+services:
+  db:
+    container_name: inventory_system
+    image: postgres
+    environment:
+      POSTGRES_USER: reb0rn
+      POSTGRES_PASSWORD: password
+      POSTGRES_DB: testdb
+    ports:
+      - "5332:5432"
+    restart: unless-stopped
+    volumes:
+      - db:/data/postgres
+    networks:
+      - inventory_network
+
+networks:
+  inventory_network:
+    driver: bridge
+
+volumes:
+  db:

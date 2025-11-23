@@ -1,0 +1,17 @@
+curl -X POST \
+  http://localhost:8080/inventory/ABC123/reserve \
+  -H 'Content-Type: application/json' \
+  -d '{
+    "qty": 5
+}'
+
+
+intellj console
+
+
+$body = '{"qty": 5}'
+
+Invoke-RestMethod -Uri http://localhost:8080/inventory/ABC123/reserve `
+                  -Method POST `
+                  -Headers @{"Content-Type"="application/json"} `
+                  -Body $body
